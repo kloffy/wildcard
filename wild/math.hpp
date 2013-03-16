@@ -1,6 +1,8 @@
 #ifndef WILD_MATH_HPP
 #define WILD_MATH_HPP
 
+#include <cmath>
+
 namespace wild {
 
 inline int mod(int x, int m)
