@@ -1,9 +1,13 @@
 #ifndef WILD_BITS_HPP
 #define WILD_BITS_HPP
 
+<<<<<<< HEAD
 #include <wild/config.hpp>
 
 #if defined(HAVE_BITSCANFORWARD) && defined(HAVE_BITSCANREVERSE)
+=======
+#if defined(HAVE__BITSCANFORWARD) && defined(HAVE__BITSCANREVERSE)
+>>>>>>> ad4f7244a84df58e4a3b6799ab77e1bc0c304005
 #include <intrin.h>
 #pragma intrinsic(_BitScanForward)
 #pragma intrinsic(_BitScanReverse)
