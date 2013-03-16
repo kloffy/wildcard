@@ -13,7 +13,7 @@ namespace wild {
 
 inline unsigned int ffs(unsigned int x)
 {
-#if defined(HAVE__BITSCANFORWARD)
+#if defined(HAVE_BITSCANFORWARD)
 	unsigned long r;
 	unsigned char res = _BitScanForward(&r, (unsigned long)x);
 	assert(res > 0);
@@ -25,7 +25,7 @@ inline unsigned int ffs(unsigned int x)
 
 inline unsigned int fls(unsigned int x)
 {
-#if defined(HAVE__BITSCANREVERSE)
+#if defined(HAVE_BITSCANREVERSE)
 	unsigned long r;
 	unsigned char res = _BitScanReverse(&r, (unsigned long)x);
 	assert(res > 0);
