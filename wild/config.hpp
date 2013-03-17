@@ -17,8 +17,8 @@
 #define WILD_PLATFORM_WIN32
 
 // Make compiler dependent?
-//#define HAVE_BITSCANFORWARD
-//#define HAVE_BITSCANREVERSE
+#define HAVE_BITSCANFORWARD
+#define HAVE_BITSCANREVERSE
 
 #endif
 
