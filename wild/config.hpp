@@ -5,6 +5,9 @@
 
 #define WILD_PLATFORM_LINUX
 
+#define HAVE_FFS
+#define HAVE_FLS
+
 #elif defined(macintosh) || defined(__APPLE__) || defined(__APPLE_CC__)
 
 #define WILD_PLATFORM_MACOS
@@ -13,9 +16,9 @@
 
 #define WILD_PLATFORM_WIN32
 
-// Availability depends on platfrom or compiler?
-#define HAVE_BITSCANFORWARD
-#define HAVE_BITSCANREVERSE
+// Make compiler dependent?
+//#define HAVE_BITSCANFORWARD
+//#define HAVE_BITSCANREVERSE
 
 #endif
 

@@ -3,10 +3,18 @@
 
 #include <wild/config.hpp>
 
-#if defined(HAVE_BITSCANFORWARD) && defined(HAVE_BITSCANREVERSE)
+// Find first set, find last set.
+// http://en.wikipedia.org/wiki/Find_first_set
+// Warning: Fallback implementation not optimized.
+
+#if defined(HAVE_BITSCANFORWARD) || defined(HAVE_BITSCANREVERSE)
 #include <intrin.h>
 #pragma intrinsic(_BitScanForward)
 #pragma intrinsic(_BitScanReverse)
+#elif defined(HAVE_FFS) || defined(HAVE_FLS)
+#include <strings.h>
+#else
+#include <climits>
 #endif
 
 namespace wild {
@@ -18,8 +26,12 @@ inline unsigned int ffs(unsigned int x)
 	unsigned char res = _BitScanForward(&r, (unsigned long)x);
 	assert(res > 0);
 	return (unsigned int)r;
-#else
+#elif defined(HAVE_FFS)
 	return ::ffs(x) - 1;
+#else
+	unsigned int r = 0;
+	while ((x >> r++) & 1 == 0);
+	return r - 1;
 #endif
 }
 
@@ -30,8 +42,12 @@ inline unsigned int fls(unsigned int x)
 	unsigned char res = _BitScanReverse(&r, (unsigned long)x);
 	assert(res > 0);
 	return (unsigned int)r;
-#else
+#elif defined(HAVE_FLS)
 	return ::fls(x) - 1;
+#else
+	unsigned int r = sizeof(unsigned int) * CHAR_BIT;
+	while ((x >> r--) & 1 == 0);
+	return r - 1;
 #endif
 }
 
