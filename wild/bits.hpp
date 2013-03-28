@@ -18,6 +18,7 @@
 #endif
 
 namespace wild {
+namespace bits {
 
 inline unsigned int ffs(unsigned int x)
 {
@@ -53,6 +54,7 @@ inline unsigned int fls(unsigned int x)
 #endif
 }
 
-}
+} // bits
+} // wild
 
 #endif // WILD_BITS_HPP
